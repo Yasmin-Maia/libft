@@ -1,39 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymaia-do <ymaia-do@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 10:55:15 by ymaia-do          #+#    #+#             */
-/*   Updated: 2024/11/05 17:58:00 by ymaia-do         ###   ########.fr       */
+/*   Created: 2024/11/05 11:14:43 by yasmin            #+#    #+#             */
+/*   Updated: 2024/11/05 17:02:12 by ymaia-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(char c)
+#include "libft.h"
+
+void	ft_putchar_fd(char c, int fd)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-	{
-		return (1);
-	}
-	else
-	{
-		return (0);
-	}
+	write(fd, &c, 1);
 }
 /* 
-#include <ctype.h>
-#include <stdio.h>
-
-int	main(void)
+int main(void)
 {
-	char	c;
-
-	c = 'a';
-	if (ft_isalpha(c))
-	{
-		printf("ft_isalpha");
-	}
-	else
-	printf("0");
+	ft_putchar_fd('a', 1);
+	return (0);
 } */

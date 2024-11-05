@@ -1,42 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymaia-do <ymaia-do@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/25 13:18:33 by yasmin            #+#    #+#             */
-/*   Updated: 2024/10/30 18:30:29 by ymaia-do         ###   ########.fr       */
+/*   Created: 2024/11/05 10:41:31 by yasmin            #+#    #+#             */
+/*   Updated: 2024/11/05 17:36:35 by ymaia-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	void	*ptr;
+	unsigned int	i;
 
-	ptr = malloc(count * size);
-	if (ptr == NULL)
-		return (NULL);
-	ft_bzero(ptr, count * size);
-	return (ptr);
+	i = 0;
+	if (s == NULL || f == NULL)
+		return ;
+	while (s[i])
+	{
+		f(i, &s[i]);
+		i++;
+	}
 }
 /* 
+void	ft_toupper_wrapper(unsigned int i, char *c)
+{
+	(void)i;
+	if (*c >= 'a' && *c <= 'z')
+		*c = *c - 32;
+}
+
 int main(void)
 {
-    int *ptr;
-    int i;
+	char	str[] = "Hello";
+	void	(*f)(unsigned int, char *);
 
-    ptr = (int *)ft_calloc(5, sizeof(int));
-    if (ptr == NULL)
-        return (0);
-    i = 0;
-    while (i < 5)
-    {
-        printf("%d\n", ptr[i]);
-        i++;
-    }
-    free(ptr);
-    return (0);
+	f = ft_toupper_wrapper;
+	ft_striteri(str, f);
+	printf("%s\n", str);
+	return (0);
 } */

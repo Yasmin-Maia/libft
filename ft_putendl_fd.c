@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymaia-do <ymaia-do@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 10:55:15 by ymaia-do          #+#    #+#             */
-/*   Updated: 2024/11/05 17:58:00 by ymaia-do         ###   ########.fr       */
+/*   Created: 2024/11/05 16:34:54 by ymaia-do          #+#    #+#             */
+/*   Updated: 2024/11/05 17:37:25 by ymaia-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(char c)
+#include "libft.h"
+
+void	ft_putendl_fd(char *s, int fd)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+	int	i;
+
+	i = 0;
+	while (s[i])
 	{
-		return (1);
+		write(fd, &s[i], 1);
+		i++;
 	}
-	else
-	{
-		return (0);
-	}
+	write(fd, "\n", 1);
 }
 /* 
-#include <ctype.h>
-#include <stdio.h>
-
 int	main(void)
 {
-	char	c;
+	char	*string;
 
-	c = 'a';
-	if (ft_isalpha(c))
-	{
-		printf("ft_isalpha");
-	}
-	else
-	printf("0");
+	string = "i have not idea.";
+	ft_putendl_fd(string, 1);
 } */
