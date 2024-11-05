@@ -6,7 +6,7 @@
 /*   By: ymaia-do <ymaia-do@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:26:41 by yasmin            #+#    #+#             */
-/*   Updated: 2024/11/05 17:36:12 by ymaia-do         ###   ########.fr       */
+/*   Updated: 2024/11/05 18:16:54 by ymaia-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,9 @@ char	**ft_split(char const *s, char c)
 		else
 			i++;
 	}
-	ptr[j] = '\0';
 	return (ptr);
 }
-/* 
+/*
 #include <stdio.h>
 
 int main(void)
@@ -98,4 +97,4 @@ int main(void)
 		i++;
 	}
 	return (0);
-} */
+}*/

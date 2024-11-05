@@ -6,7 +6,7 @@
 /*   By: ymaia-do <ymaia-do@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 12:54:17 by ymaia-do          #+#    #+#             */
-/*   Updated: 2024/10/23 16:40:57 by ymaia-do         ###   ########.fr       */
+/*   Updated: 2024/11/05 18:41:40 by ymaia-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	d = (unsigned char *) dest;
 	s = (unsigned char *) src;
 	i = 0;
+	if (d == s || n == 0)
+		return (dest);
 	if (d > s)
 	{
 		while (n-- > 0)
@@ -30,7 +32,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	else
 	{
-		while (i < 0)
+		while (i < n)
 		{
 			d[i] = s[i];
 			i++;
