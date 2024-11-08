@@ -6,7 +6,7 @@
 /*   By: ymaia-do <ymaia-do@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 11:19:52 by ymaia-do          #+#    #+#             */
-/*   Updated: 2024/11/05 17:38:51 by ymaia-do         ###   ########.fr       */
+/*   Updated: 2024/11/08 14:41:12 by ymaia-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	*ft_memset(void *str, int c, int n);
 void	ft_bzero(void *s, size_t n);
 size_t	ft_strlen(const char *s);
 int		ft_isalnum(int c);
-int		ft_isalpha(char c);
+int		ft_isalpha(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int i);
 int		ft_isprint(int c);

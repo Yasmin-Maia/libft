@@ -6,7 +6,7 @@
 /*   By: ymaia-do <ymaia-do@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:26:41 by yasmin            #+#    #+#             */
-/*   Updated: 2024/11/05 18:16:54 by ymaia-do         ###   ########.fr       */
+/*   Updated: 2024/11/07 18:41:19 by ymaia-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,80 +21,90 @@ size_t	ft_count_words(char const *s, char c)
 	i = 0;
 	while (s[i])
 	{
-		if (s[i] != c)
-		{
+		while (s[i] == c)
+			i++;
+		if (s[i])
 			count++;
-			while (s[i] && s[i] != c)
-				i++;
-		}
-		else
+		while (s[i] != c && s[i] != '\0')
 			i++;
 	}
 	return (count);
 }
 
-char	*ft_get_word(char const *s, char c, size_t *i)
+char	**ft_get_word(char const *s, char c, char **result)
 {
-	char	*ptr;
+	size_t	i;
 	size_t	j;
 	size_t	start;
-	size_t	end;
+	size_t	len;
 
+	i = 0;
 	j = 0;
-	start = *i;
-	while (s[start] && s[start] != c)
-		start++;
-	end = start;
-	ptr = (char *)malloc((end - *i) + 1);
-	if (ptr == NULL)
-		return (NULL);
-	while (*i < end)
+	while (s[i] != '\0')
 	{
-		ptr[j] = s[*i];
-		j++;
-		(*i)++;
+		if ((i == 0 && s[i] != c) || (s[i] != c && s[i - 1] == c))
+			start = i;
+		if ((s[i] == c && s[i - 1] != c && i > 0)
+			|| (s[i + 1] == '\0' && s[i] != c))
+		{
+			if (s[i + 1] == '\0' && s[i] != c)
+				len = i - start + 1;
+			else
+				len = i - start;
+			result[j] = ft_substr(s, start, len);
+			j++;
+		}
+		i++;
 	}
-	ptr[j] = '\0';
-	return (ptr);
+	result[j] = NULL;
+	return (result);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**ptr;
-	size_t	i;
-	size_t	j;
+	char	**result;
 
-	i = 0;
-	j = 0;
 	if (s == NULL)
 		return (NULL);
-	ptr = (char **)malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
-	if (ptr == NULL)
-		return (NULL);
-	while (s[i])
+	if (s[0] == '\0')
 	{
-		if (s[i] != c)
-		{
-			ptr[j] = ft_get_word(s, c, &i);
-			j++;
-		}
-		else
-			i++;
+		result = malloc(sizeof(char *) * 1);
+		if (result == NULL)
+			return (NULL);
+		result[0] = NULL;
+		return (result);
 	}
-	return (ptr);
+	result = malloc (sizeof(char *) * (ft_count_words(s, c) + 1));
+	if (result == NULL)
+		return (NULL);
+	ft_get_word(s, c, result);
+	return (result);
 }
-/*
-#include <stdio.h>
+/* 
+void	ft_free_split(char **s, size_t i)
+{
+	size_t	j;
 
+	j = 0;
+	while (j < i)
+	{
+		free(s[j]);
+		j++;
+	}
+	free(s);
+}
 int main(void)
 {
-	char *s = "Hello World is ok";
+	char *s = " Hello   World is ok   ";
 	char **ptr = ft_split(s, ' ');
-	int i = 0;
+	int i;
+	
+	i = 0;
 	while (ptr[i])
 	{
 		printf("%s\n", ptr[i]);
 		i++;
 	}
+	ft_free_split(ptr, i);
 	return (0);
-}*/
+} */

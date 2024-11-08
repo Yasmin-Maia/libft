@@ -6,7 +6,7 @@
 /*   By: ymaia-do <ymaia-do@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 12:05:16 by ymaia-do          #+#    #+#             */
-/*   Updated: 2024/10/23 12:53:25 by ymaia-do         ###   ########.fr       */
+/*   Updated: 2024/11/08 14:59:40 by ymaia-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	unsigned char	*s;
 	size_t			i;
 
-	i = 0;
-	d = (unsigned char *) dest;
-	s = (unsigned char *) src;
-	if (s == NULL || d == NULL)
+	if (src == NULL && dest == NULL)
 	{
 		return (NULL);
 	}
+	i = 0;
+	d = (unsigned char *) dest;
+	s = (unsigned char *) src;
 	while (i < n)
 	{
 		d[i] = s[i];

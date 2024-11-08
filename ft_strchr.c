@@ -6,7 +6,7 @@
 /*   By: ymaia-do <ymaia-do@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 12:10:37 by ymaia-do          #+#    #+#             */
-/*   Updated: 2024/10/24 15:06:45 by ymaia-do         ###   ########.fr       */
+/*   Updated: 2024/11/08 15:39:21 by ymaia-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ char	*ft_strchr(const char *s, int c)
 	i = 0;
 	while (s[i])
 	{
-		if (s[i] == c)
+		if (s[i] == (char)c)
 		{
 			return ((char *) &s[i]);
 		}
 		i++;
 	}
-	if (s[i] == c)
+	if (s[i] == (char)c)
 	{
 		return ((char *) &s[i]);
 	}
