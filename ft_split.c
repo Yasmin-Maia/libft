@@ -44,7 +44,7 @@ char	**ft_get_word(char const *s, char c, char **result)
 	{
 		if ((i == 0 && s[i] != c) || (s[i] != c && s[i - 1] == c))
 			start = i;
-		if ((s[i] == c && s[i - 1] != c && i > 0)
+		if ((s[i] == c && i > 0 && s[i - 1] != c)
 			|| (s[i + 1] == '\0' && s[i] != c))
 		{
 			if (s[i + 1] == '\0' && s[i] != c)
