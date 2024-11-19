@@ -6,20 +6,19 @@
 /*   By: ymaia-do <ymaia-do@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:55:15 by ymaia-do          #+#    #+#             */
-/*   Updated: 2024/11/05 17:58:00 by ymaia-do         ###   ########.fr       */
+/*   Updated: 2024/11/08 14:39:52 by ymaia-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(char c)
+#include "libft.h"
+
+int	ft_isalpha(int c)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 	{
 		return (1);
 	}
-	else
-	{
-		return (0);
-	}
+	return (0);
 }
 /* 
 #include <ctype.h>
