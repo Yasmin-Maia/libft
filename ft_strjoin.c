@@ -6,7 +6,7 @@
 /*   By: ymaia-do <ymaia-do@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 18:47:57 by ymaia-do          #+#    #+#             */
-/*   Updated: 2024/10/29 15:27:53 by ymaia-do         ###   ########.fr       */
+/*   Updated: 2025/06/23 12:34:23 by ymaia-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
-	temp = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	temp = ft_calloc(sizeof(char), (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (temp == NULL)
 		return (NULL);
-	while (i < ft_strlen(s1))
+	while (s1[i])
 	{
 		temp[i] = s1[i];
 		i++;
 	}
-	while (j < ft_strlen(s2))
+	while (s2[j])
 	{
 		temp[i] = s2[j];
 		i++;
